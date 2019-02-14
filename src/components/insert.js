@@ -9,6 +9,7 @@ const GET_INVENTORY = gql`
       name
       price
       inventory_id
+      description
     }
   }
 `;
@@ -23,6 +24,7 @@ const ADD_INVENTORY = gql`
         name
         price
         inventory_id
+        description
       }
     }
   }
@@ -53,24 +55,32 @@ const InsertInventory = () => {
             }}
           >
             <input
+              className="border"
               type="text"
               name="name"
               value={name}
               onChange={e => setName(e.target.value)}
             />
             <input
+              className="border"
               type="number"
               name="price"
               value={price}
               onChange={e => setPrice(e.target.value)}
             />
             <input
+              className="border"
               type="text"
               name="description"
               value={description}
               onChange={e => setDescription(e.target.value)}
             />
-            <button type="submit">Submit</button>
+            <button
+              className="p-2 rounded-full bg-green-lightest shadow"
+              type="submit"
+            >
+              Submit
+            </button>
           </form>
         </div>
       )}

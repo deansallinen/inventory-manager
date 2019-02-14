@@ -11,7 +11,7 @@
     "react-scripts": "2.1.5"
   },
   "scripts": {
-    "build:css": "postcss src/styles/index.css -o src/index.css",
+    "build:css": "postcss src/styles/index.css -o src/index.css --env production",
     "watch:css": "postcss src/styles/index.css -o src/index.css -w",
     "start": "npm run watch:css & react-scripts start",
     "build": "npm run build:css && react-scripts build",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "autoprefixer": "^9.4.7",
     "postcss-cli": "^6.1.1",
+    "postcss-purgecss": "^1.0.0",
     "tailwindcss": "^0.7.4"
   }
 }

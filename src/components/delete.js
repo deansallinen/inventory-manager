@@ -35,7 +35,6 @@ const DeleteInventory = ({ id }) => {
           data: {
             inventory: inventory.filter(inv => {
               const [deleted] = delete_inventory.returning;
-              //   console.log(deleted);
               return inv.inventory_id !== deleted.inventory_id;
             }),
           },
@@ -45,6 +44,7 @@ const DeleteInventory = ({ id }) => {
       {delete_inventory => (
         <div>
           <button
+            className="p-2 shadow bg-red-lightest rounded-full"
             onClick={e => {
               e.preventDefault();
               delete_inventory({ variables: { id } });

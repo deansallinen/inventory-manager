@@ -16,6 +16,7 @@ const GET_INVENTORY = gql`
       name
       price
       inventory_id
+      description
     }
   }
 `;
@@ -30,9 +31,11 @@ const Inventory = () => (
         <div>
           {data.inventory &&
             data.inventory.map(inv => (
-              <div key={inv.id}>
+              <div className="flex" key={inv.id}>
                 <DeleteInventory id={inv.inventory_id} />
-                {inv.inventory_id}
+                <div>{inv.name}</div>
+                <div>{inv.price}</div>
+                <div>{inv.description}</div>
               </div>
             ))}
         </div>
@@ -44,9 +47,12 @@ const Inventory = () => (
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <InsertInventory />
-        <Inventory />
+      <div className="App flex">
+        <div className="bg-grey-light">sidebar</div>
+        <div>
+          <InsertInventory />
+          <Inventory />
+        </div>
       </div>
     </ApolloProvider>
   );
