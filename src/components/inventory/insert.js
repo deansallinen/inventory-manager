@@ -49,11 +49,13 @@ const InsertInventory = () => {
       {(insert_inventory, { data }) => (
         <div>
           <form
+            className=""
             onSubmit={e => {
               e.preventDefault();
               insert_inventory({ variables: { name, price, description } });
             }}
           >
+            <label for="name">Name</label>
             <input
               className="border"
               type="text"
@@ -61,6 +63,7 @@ const InsertInventory = () => {
               value={name}
               onChange={e => setName(e.target.value)}
             />
+            <label for="price">Price</label>
             <input
               className="border"
               type="number"
@@ -68,6 +71,7 @@ const InsertInventory = () => {
               value={price}
               onChange={e => setPrice(e.target.value)}
             />
+            <label for="description">Description</label>
             <input
               className="border"
               type="text"
@@ -76,7 +80,7 @@ const InsertInventory = () => {
               onChange={e => setDescription(e.target.value)}
             />
             <button
-              className="p-2 rounded-full bg-green-lightest shadow"
+              className="py-1 px-2 rounded text-green-dark bg-green-lightest shadow"
               type="submit"
             >
               Submit

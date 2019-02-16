@@ -44,7 +44,7 @@ const DeleteInventory = ({ id }) => {
       {delete_inventory => (
         <div>
           <button
-            className="p-2 shadow bg-red-lightest rounded-full"
+            className="mr-2 py-1 px-2 shadow text-red-dark bg-red-lightest rounded"
             onClick={e => {
               e.preventDefault();
               delete_inventory({ variables: { id } });
